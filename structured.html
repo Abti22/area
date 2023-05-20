@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>حاسبة المساحة</title>
+ <style type="text/css">
+  body {
+   font-family: Arial, sans-serif;
+   background-color: #f2f2f2;
+  }
+  h1 {
+   text-align: center;
+   color: #333;
+  }
+  form {
+   margin: 0 auto;
+   width: 50%;
+   padding: 20px;
+   background-color: #fff;
+   border-radius: 5px;
+   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+  }
+  label {
+   display: block;
+   margin-bottom: 10px;
+   color: #666;
+  }
+  input[type="number"] {
+   padding: 10px;
+   border-radius: 5px;
+   border: none;
+   box-shadow: inset 0px 0px 5px rgba(0,0,0,0.1);
+   width: calc(100% - 20px);
+  }
+        input[type="submit"] {
+            background-color:#4CAF50; 
+            border:none; 
+            color:white; 
+            padding:16px 32px; 
+            text-decoration:none; 
+            margin-top:20px; 
+            cursor:pointer; 
+            border-radius:5px; 
+        }
+        input[type="submit"]:hover {
+         background-color:#3e8e41; 
+        }
+        .result {
+         margin-top:20px; 
+         padding-top:10px; 
+         border-top:solid #ccc 1px; 
+         font-size:bold;  
+        }
+    </style>
+</head>
+<body>
+<h1>حساب المساحة</h1>
+<form onsubmit="calculateArea(); return false;">
+ <label for="length">الطول (بالأمتار):</label>
+ <input type="number" id="length" required>
+ <label for="width">العرض (بالأمتار):</label>
+ <input type="number" id="width" required>
+ <input type="submit" value="حساب المساحة">
+</form>
+<div class="result">
+ <p id="area"></p>
+</div>
+
+<script type="text/javascript">
+ function calculateArea() {
+  var length = document.getElementById("length").value;
+  var width = document.getElementById("width").value;
+  var area = length * width;
+  document.getElementById("area").innerHTML = "المساحة: " + area + " م²";
+ }
+</script>
+
+</body>
+</html>

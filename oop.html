@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Calculator</title>
+ <style type="text/css">
+  body {
+   font-family: Arial, sans-serif;
+   background-color: #f2f2f2;
+  }
+  h1 {
+   text-align: center;
+   margin-top: 50px;
+   color: #333;
+  }
+  form {
+   margin-top: 50px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+  }
+  input[type="number"] {
+   padding: 10px;
+   margin-bottom: 20px;
+   border-radius: 5px;
+   border: none;
+   box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+  }
+  button[type="submit"] {
+   padding: 10px 20px;
+   background-color: #333;
+   color: #fff;
+   border-radius: 5px;
+   border:none; 
+            cursor:pointer
+        }
+        button[type="submit"]:hover{
+            background-color:#555
+        }
+        .result{
+            margin-top:30px
+        }
+        .result p{
+            font-size :20px
+        }
+    </style>
+</head>
+<body>
+    <h1>Area Calculator</h1>
+    <form id="calculator">
+        <label for="length">Length:</label>
+        <input type="number" id="length" name="length" required>
+
+        <label for="width">Width:</label>
+        <input type="number" id="width" name="width" required>
+
+        <button type="submit">Calculate</button>
+
+    </form>
+
+    <div class ="result">
+       <p>The area is :<span id ="area"></span></p> 
+    </div>
+
+    <script>
+        class Calculator{
+            constructor(length,width){
+                this.length = length;
+                this.width = width;
+            }
+
+            getArea(){
+                return this.length * this.width;
+            }
+        }
+
+        const form = document.getElementById("calculator");
+        const areaResult = document.getElementById("area");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const length = parseInt(document.getElementById("length").value);
+            const width = parseInt(document.getElementById("width").value);
+
+            const calculator = new Calculator(length, width);
+            const area = calculator.getArea();
+
+            areaResult.textContent = area;
+        });
+    </script>
+</body>
+</html>
